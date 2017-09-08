@@ -319,7 +319,7 @@ void S9xMainLoop (void)
 		}
 
 		//S9xUnpackStatus();
-		S9xTraceCPU();
+		// S9xTraceCPU();
 		CallRegisteredLuaMemHook(Registers.PBPC, ICPU.S9xOpLengths[Op], Op, LUAMEMHOOK_EXEC);
 		Registers.PCw++;
 		(*Opcodes[Op].S9xOpcode)();

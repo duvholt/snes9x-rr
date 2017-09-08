@@ -130,9 +130,18 @@ static const char *button_mappings[] = {
 	"R", "L", "X", "A", "right", "left", "down", "up", "start", "select", "Y", "B"
 };
 
+int vscprintf (const char * format, va_list pargs) { 
+	int retval; 
+	va_list argcopy; 
+	va_copy(argcopy, pargs); 
+	retval = vsnprintf(NULL, 0, format, argcopy); 
+	va_end(argcopy); 
+	return retval; 
+}
+
 #ifdef _MSC_VER
 	#define snprintf _snprintf
-	#define vscprintf _vscprintf
+	// #define vscprintf _vscprintf
 #else
 	#define stricmp strcasecmp
 	#define strnicmp strncasecmp

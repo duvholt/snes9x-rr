@@ -1240,6 +1240,8 @@ static void Repaint(bool isFrameBoundry)
 	}
 	else
 #endif
+		// TODO DUVBERT: Fix
+		return;
 	    XPutImage (GUI.display, GUI.window, GUI.gc, GUI.image,
 		       0, 0,
 		       GUI.box.x, GUI.box.y,
