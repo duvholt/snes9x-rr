@@ -163,7 +163,7 @@ CC = sh-elf-gcc
 NASM = fail
 GASM = fail
 else
-CCC = @CXX@ @RTTIFLAG@
+CCC = @CXX@ -std=gnu++98 @RTTIFLAG@
 CC = @CC@
 NASM = @NASM@
 GASM = @CXX@
@@ -250,7 +250,7 @@ offsets: offsets.o
 #	cd ../zlib && sh ./configure && make
 
 snes9x: $(OBJECTS) unix/x11.o $(AIDOOBJS) $(OFFSET)
-	$(CCC) $(INCLUDES) -o $@ $(OBJECTS) $(AIDOOBJS) $(GLIDEOBJS) $(OPENGLOBJS) unix/x11.o $(LDLIBS) $(GLIDELIBS) $(OPENGLLIBS) @SYSLIBS@ -lXext -lX11 $(EXTRALIBS) -lm -llua
+	$(CCC) $(INCLUDES) -o $@ $(OBJECTS) $(AIDOOBJS) $(GLIDEOBJS) $(OPENGLOBJS) unix/x11.o $(LDLIBS) $(GLIDELIBS) $(OPENGLLIBS) @SYSLIBS@ -lXext -lX11 $(EXTRALIBS) -lm -llua5.1
 
 unix/svga_keynames.h: unix/svga_get_keynames.pl
 	unix/svga_get_keynames.pl /usr/include/vgakeyboard.h > unix/svga_keynames.h
